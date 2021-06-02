@@ -3,41 +3,45 @@
 
 #include <iostream>
 
-void UnsignedPlus(unsigned char a, unsigned char b)
+void UnsignedPlus(int a, int b)
 {
+    unsigned char uA = (unsigned char)a;
+    unsigned char uB = (unsigned char)b;
     bool isOverflow = false; 
     unsigned char result;
     _asm
     {
-        mov al, a; 
-        mov bl, b;
-        adc al, bl; 
-        mov result, al;
+        mov al, uA
+        mov bl, uB
+        adc al, bl 
+        mov result, al
         jnc STEP2  
-            jc STEP1;  
+            jc STEP1  
     STEP1:
-        mov isOverflow, 1; 
+        mov isOverflow, 1 
     STEP2:
     }
     printf("a + b = %d ", (int)result);
     std::cout << "(unsigned) " << (isOverflow ? "overflow" : "no overflow") << "\n";
 }
 
-void SignedPlus(signed char a, signed char b)
+void SignedPlus(int a, int b)
 {
+    signed char sA = (signed char)a;
+    signed char sB = (signed char)b;
     bool isOverflow = false;
     char result;
 
     __asm
     {
-        mov al, a;
-        mov bl, b;
-        adc al, bl;
-        mov result, al;
+        mov al, sA
+        mov bl, sB
+        adc al, bl
+        mov result, al
         jno STEP2 
-            jo STEP1; 
+            jo STEP1 
     STEP1:
-        mov isOverflow, 1;
+        mov isOverflow, 1
     STEP2:
     }
     printf("a + b = %d ", (int)result);

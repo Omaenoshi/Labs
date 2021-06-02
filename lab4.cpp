@@ -10,25 +10,25 @@ int main()
     char reMessage[100];
     __asm
     {
-        mov ecx, 0; 
+        mov ecx, 0
     PushSymbol:
-        mov al, [message + ecx]; 
-        push al; 
-        inc ecx; 
-        cmp [message + ecx], 0; 
-        je EndPush;
-        jmp PushSymbol; 
+        mov al, [message + ecx]
+        push al
+        inc ecx
+            cmp [message + ecx], 0 
+            je EndPush
+            jmp PushSymbol 
     EndPush:
-        mov ebx, 0; 
+        mov ebx, 0
     PopSymbol:
-        pop al; 
-        mov[reMessage + ebx], al; 
-        inc ebx;
-        cmp ebx, ecx;
-        je EndPop;
-        jmp PopSymbol;
+        pop al
+        mov[reMessage + ebx], al
+        inc ebx
+            cmp ebx, ecx
+            je EndPop
+            jmp PopSymbol
     EndPop :
-        mov[reMessage + ebx], 0;
+        mov[reMessage + ebx], 0
     }
 
 }

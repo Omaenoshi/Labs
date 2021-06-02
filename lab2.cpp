@@ -9,9 +9,9 @@ int Plus(int firstNum, int secondNum)
 
     __asm
     {
-        mov eax, firstNum;
-        add eax, secondNum;
-        mov sum, eax;
+        mov eax, firstNum
+        add eax, secondNum
+        mov sum, eax
     }
 
     return sum;
@@ -23,9 +23,9 @@ int Mult(int firstNum, int secondNum)
 
     __asm
     {
-        mov eax, firstNum;
-        mul secondNum;
-        mov product, eax;
+        mov eax, firstNum
+        mul secondNum
+        mov product, eax
     }
 
     return product;
@@ -37,9 +37,9 @@ int Div(int firstNum, int secondNum)
 
     __asm
     {
-        mov eax, firstNum;
-        div secondNum;
-        mov quotient, eax;
+        mov eax, firstNum
+        div secondNum
+        mov quotient, eax
     }
 
     return quotient;
@@ -51,9 +51,9 @@ int Sub(int firstNum, int secondNum)
 
     __asm
     {
-        mov eax, firstNum;
-        sub eax, secondNum;
-        mov difference, eax;
+        mov eax, firstNum
+        sub eax, secondNum
+        mov difference, eax
     }
 
     return difference;
